@@ -1,11 +1,44 @@
-this repository is a playground for using ai agent tooling for various projects (requirements will be contained per-subfolder app to keep it simple, create virtual environments as you see fit)
+# Agent Test Demo Projects
 
-ideally first i will implement an agent to ping a locally hosted API that returns a 200 and some text. 
+Welcome to the demo-test repository for various LLM tools and experiments.
 
-then i will create a docker compose and setup scripts for both the agent AND server. 
+## Project Structure
 
-likely there will be a .env required in the root, i will include a `.env-example` for a person to populate as they see fit
+Each project lives in its own folder and includes:
 
-looking at the [anthropic cookbook](https://github.com/anthropics/anthropic-cookbook/tree/main)
+- `README.md` — Project-specific instructions
+- `requirements.txt` — Python dependencies
 
-as a starting point for local agents
+Most projects use **Python** and **Flask APIs**. Some may include ESP32 scripts or other hardware-focused code.
+
+## Getting Started
+
+1. **Create a virtual environment (Python 3.11+ recommended):**
+
+    ```bash
+    python -m venv .venv
+    ```
+
+2. **Activate the virtual environment:**
+
+    - On Windows:
+      ```bash
+      .venv\Scripts\activate
+      ```
+    - On macOS/Linux:
+      ```bash
+      source .venv/bin/activate
+      ```
+
+3. **Install dependencies for your chosen project:**
+
+    ```bash
+    pip install -r path/to/project/requirements.txt
+    ```
+
+4. **Read the project's `README.md` for specific instructions.**
+
+## Notes
+
+- Each project is self-contained. You do you—follow the instructions, or blaze your own trail.
+- Contributions, suggestions, and constructive sass are welcome.

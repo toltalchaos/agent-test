@@ -1,0 +1,5 @@
+MODEL_NAME = "llama2"
+MODEL_URL = "http://localhost:11434"
+TEMPERATURE = 1
+MAX_TOKENS = 50
+MAX_AUDITS = 1
