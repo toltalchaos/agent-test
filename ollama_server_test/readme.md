@@ -10,6 +10,8 @@ This guide walks you through setting up a local Large Language Model (LLM) using
 - Python 3.8 or newer
 - `pip` package manager
 
+- may also be worth referencing [THIS](https://www.hongkiat.com/blog/ollama-llm-from-external-drive/) article if there are concerns about hard drive space
+
 ---
 
 ## 1. Start Ollama and Pull a Model
