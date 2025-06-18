@@ -1,16 +1,17 @@
 from flask import Flask, request, jsonify
 from ollama_server_test.custom_errors import NoModelResponse
 from ollama_server_test.research.llm_actions import call_model
+from ollama_server_test.research.prompt_improvement import improve_prompt
 from ollama_server_test.research.reasearch import OllamaAuditor
 
 app = Flask(__name__)
 
 
-@app.route('/generate', methods=['POST'])
+@app.route('/research', methods=['POST'])
 def generate():
     try:
         prompt = request.json.get('prompt', '')
-        response = call_model(prompt)
+        response = call_model(improve_prompt(prompt))
         auditor = OllamaAuditor(initial_prompt=prompt) # prompt here is redundant but for future use
         audited_response = auditor.audit_inaccuracy(prompt, response.get('response', ''))
         return jsonify(audited_response)
