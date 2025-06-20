@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import ollama
 from ollama_server_test.custom_errors import NoModelResponse
 from ollama_server_test.research.llm_actions import call_model
 from ollama_server_test.research.prompt_improvement import improve_prompt
