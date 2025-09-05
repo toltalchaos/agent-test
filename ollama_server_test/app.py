@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 import ollama
+from ollama_server_test import settings
 from ollama_server_test.custom_errors import NoModelResponse
 from ollama_server_test.research.llm_actions import call_model
 from ollama_server_test.research.prompt_improvement import improve_prompt
 from ollama_server_test.research.reasearch import OllamaAuditor
 
 app = Flask(__name__)
-
 
 @app.route('/research', methods=['POST'])
 def generate():
@@ -33,3 +33,4 @@ def health():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    ollama.bye(settings.MODEL_NAME)

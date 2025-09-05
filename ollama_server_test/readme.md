@@ -61,6 +61,11 @@ To run a custom or default model locally:
     ollama stop teacher
     ```
 
+    or, in the active terminal:
+    ```sh
+    /bye
+    ```
+
 ---
 
 ## 4. Run the Flask API
