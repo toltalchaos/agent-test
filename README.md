@@ -38,7 +38,42 @@ Most projects use **Python** and **Flask APIs**. Some may include ESP32 scripts 
 
 4. **Read the project's `README.md` for specific instructions.**
 
+---
+
+## Frontend UI (`front-end-app/learning-front-end`)
+
+A simple Svelte-based UI acts as an API wrapper for the Flask `/research` endpoint, providing a prompt-response interface.
+
+### Installation & Running
+
+1. **Install dependencies:**
+
+    ```bash
+    cd front-end-app/learning-front-end
+    npm install
+    ```
+
+2. **Start the frontend server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    The app will be available at [http://localhost:5173](http://localhost:5173) by default.
+
+### Requirements
+
+To use the frontend UI, ensure the following are running:
+
+- **Ollama server** (for LLM backend)
+- **Flask API** (`ollama_server_test/app.py`)
+- **Frontend server** (see above)
+
+CORS is currently allowed for development.
+
+---
+
 ## Notes
 
 - Each project is self-contained. You do you—follow the instructions, or blaze your own trail.
-- Contributions, suggestions, and constructive sass are welcome.
+- Contributions, suggestions, and constructive sass are

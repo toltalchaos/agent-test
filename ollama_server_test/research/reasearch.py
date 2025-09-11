@@ -24,29 +24,23 @@ class OllamaAuditor:
         self.response = response
         for _ in range(MAX_AUDITS):
             audit_prompt = (
-                f"Given the following prompt and response, identify any additional inaccuracies in the response.\n"
+                f"Given the following prompt and response, identify any inaccuracies in the response.\n"
                 f"Prompt: {self.prompt}\n"
                 f"Response: {self.response}\n"
                 f"inaccuracies: {', '.join(inaccuracies) if inaccuracies else 'None'}\n"
-                f"List any inaccuracies or reply 'None' if there are none."
+                f"List any inaccuracies or reply 'none' if there are none."
             )
-            result = call_model(audit_prompt)
-            answer = result.get("response", "").strip()
+            answer = call_model(audit_prompt)
             if answer.lower() == "none":
-                continue
+                return response  # No inaccuracies found, return original response
             inaccuracies.append(answer)
-        # If no inaccuracies were found, return None
-        if inaccuracies == []:
-            return None
         # If inaccuracies were found, generate a new response correcting them
         audited_prompt = (
             "respond to the following prompt without inaccuracies identified\n"
             f"Prompt: {self.prompt}\n"
-            f"Identified inaccuracies: {', '.join(inaccuracies) if inaccuracies else 'None'}\n"
+            f"Identified inaccuracies: {', '.join(inaccuracies)}\n"
         )
         fixed_response = call_model(audited_prompt)
-        return fixed_response if inaccuracies else response
-        # Return the fixed response if inaccuracies were found, otherwise return the original response
-
+        return fixed_response
 # later on i would like to add some functionality to research the inaccuracies or atleast provide supporting citations for the response given (which is why audit looping is important)
     

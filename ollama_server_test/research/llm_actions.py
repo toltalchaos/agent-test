@@ -9,10 +9,13 @@ def call_model(prompt, system_message=SYSTEM):
         {'role': 'system', 'content': system_message},
         {'role': 'user', 'content': prompt}
     ]
-    response = ollama.chat(
-        model=MODEL_NAME,
-        messages=messages,
-    )
-    if not response:
-        raise NoModelResponse("No response from model")
-    return response['message']['content'].strip()
+    try:
+        response = ollama.chat(
+            model=MODEL_NAME,
+            messages=messages,
+        )
+        if not response:
+            raise NoModelResponse("No response from model")
+        return response['message']['content'].strip()
+    except Exception as e:
+        raise NoModelResponse(str(e))
